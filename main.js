@@ -180,6 +180,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Libreria
+        const nodo = document.querySelector("#boton-vaciar");
+        nodo.addEventListener("click", ()=>{
+            Toastify({
+                text: "Se vacio el carrito!",
+                duration: 3000,
+                gravity: 'top',
+                position: 'right',
+                style: {
+                    background: 'linear-gradient(to right, #00b09b, #96c92d)'
+                }
+            }).showToast();
+        })
+
 
     // Eventos
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
