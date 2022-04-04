@@ -28,14 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ];
 
-    const categorias = baseDeDatos.map(element=> {
+
+
+    const categorias = baseDeDatos.map(element => {
         return {
             categoria: "Verduras",
             element,
         }
     })
 
-    const desestructurar = ( {id, nombre} ) => {
+    const desestructurar = ({
+        id,
+        nombre
+    }) => {
         console.log(id, nombre)
     }
 
@@ -181,18 +186,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Libreria
-        const nodo = document.querySelector("#boton-vaciar");
-        nodo.addEventListener("click", ()=>{
-            Toastify({
-                text: "Se vacio el carrito!",
-                duration: 3000,
-                gravity: 'top',
-                position: 'right',
-                style: {
-                    background: 'linear-gradient(to right, #00b09b, #96c92d)'
-                }
-            }).showToast();
+    const nodo = document.querySelector("#boton-vaciar");
+    nodo.addEventListener("click", () => {
+        Toastify({
+            text: "Se vacio el carrito!",
+            duration: 3000,
+            gravity: 'top',
+            position: 'right',
+            style: {
+                background: 'linear-gradient(to right, #00b09b, #96c92d)'
+            }
+        }).showToast();
+    })
+
+    //promos
+
+    const lista = document.querySelector('#Promos')
+
+    fetch('/data.json')
+        .then((res) => res.json())
+        .then((data) => {
+
+            data.forEach((producto) => {
+                const li = document.createElement('li')
+                li.innerHTML = `
+                <h4>${producto.nombre}</h4>
+                <p>${producto.precio}</p>
+                <p>Código: ${producto.id}</p>
+                <hr/>
+            `
+
+                lista.append(li)
+            })
         })
+
 
 
     // Eventos

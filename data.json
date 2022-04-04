@@ -1,0 +1,20 @@
+
+
+[
+    {
+        "id": 1,
+        "nombre": "Promo Salado",
+        "precio": 600
+        
+    },
+    {
+        "id": 2,
+        "nombre": "Promo Dulce",
+        "precio": 500
+    },
+    {
+        "id": 3,
+        "nombre": "Promo salado y dulce",
+        "precio": 480
+    }
+]
